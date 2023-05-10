@@ -29,7 +29,3 @@ Route::group(['middleware' => 'auth.admin', 'prefix' => 'admin', 'as' => 'admin.
     });
 
 });
-
-Route::get('info', function () {
-    return view('info');
-});

@@ -1,5 +1,9 @@
 <!doctype html>
-@php $prefix = "admin." @endphp
+@php
+    $prefix = "admin.";
+    $menu = $menu ?? true;
+    $footer = $footer ?? true;
+@endphp
 <html>
 
 <head>
@@ -10,25 +14,33 @@
 
 <body>
 
-<div class="container">
+@include($prefix.'includes.messages')
+<div class="container h-100 mw-100">
 
-    <header class="row">
+    <div id="main" class="row h-100 align-items-center">
 
-        @include($prefix.'includes.header')
-
-    </header>
-
-    <div id="main" class="row">
-
-        @yield('content')
+        @if($menu)
+            <div class="menu col-md-2 h-100 p-0 shadow">
+                @include($prefix.'includes.menu')
+            </div>
+            <div class="content col-md-10 h-100">
+                @yield('content')
+            </div>
+        @else
+            <div class="content col-md-12">
+                @yield('content')
+            </div>
+        @endif
 
     </div>
 
-    <footer class="row">
+    @if($footer)
+        <footer class="row">
 
-        @include($prefix.'includes.footer')
+            @include($prefix.'includes.footer')
 
-    </footer>
+        </footer>
+    @endif
 
 </div>
 

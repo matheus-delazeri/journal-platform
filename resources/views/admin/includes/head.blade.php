@@ -2,9 +2,9 @@
 
 <meta name="description" content="">
 
-<meta name="Journnal" content="Blade">
+<meta name="{{ config('app.name') }}" content="Blade">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Journal - Admin</title>
+<title>{{ config('app.name')  }} - Admin</title>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])

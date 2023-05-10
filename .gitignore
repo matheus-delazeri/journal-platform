@@ -16,3 +16,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.vercel
+!vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php

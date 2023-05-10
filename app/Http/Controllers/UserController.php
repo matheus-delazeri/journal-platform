@@ -30,6 +30,6 @@ class UserController extends Controller
     public function logout(): RedirectResponse
     {
         Auth::logout();
-        return redirect('admin')->with("success", "Successfully logged out");
+        return redirect()->intended('admin')->with("success", "See you later");
     }
 }
