@@ -4,13 +4,9 @@
     $menu = $menu ?? true;
     $footer = $footer ?? true;
 @endphp
-<html>
+<html lang="pt-br">
 
-<head>
-
-    @include($prefix.'includes.head')
-
-</head>
+@include($prefix.'includes.head')
 
 <body>
 
@@ -20,11 +16,11 @@
     <div id="main" class="row h-100 align-items-center">
 
         @if($menu)
-            <div class="menu col-md-2 h-100 p-0 shadow">
-                @include($prefix.'includes.menu')
-            </div>
-            <div class="content col-md-10 h-100">
-                @yield('content')
+            @include($prefix.'includes.menu')
+            <div class="content col-md-10 col-sm-12 h-100 py-4" style="overflow-y: auto">
+                <div class="mw-100 p-4">
+                    @yield('content')
+                </div>
             </div>
         @else
             <div class="content col-md-12">

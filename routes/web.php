@@ -26,6 +26,9 @@ Route::get('admin/logout', [UserController::class, 'logout'])->name('admin.user.
 Route::group(['middleware' => 'auth.admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', function () {
         return view('admin.pages.index');
-    });
+    })->name("index");
+    Route::get('/posts', function () {
+        return view('admin.pages.posts');
+    })->name("posts");
 
 });
