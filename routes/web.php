@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,18 +19,28 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/admin/login', function () {
-    return view('admin.pages.login');
+    return view('admin.page.login');
 })->name('admin.login');
 
 Route::post('admin/user/login', [UserController::class, 'login'])->name('admin.user.login');
 Route::get('admin/logout', [UserController::class, 'logout'])->name('admin.user.logout');
 
-Route::group(['middleware' => 'auth.admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/', function () {
-        return view('admin.pages.index');
-    })->name("index");
-    Route::get('/posts', function () {
-        return view('admin.pages.posts');
-    })->name("posts");
+Route::group(['prefix' => '/', 'as' => 'front.'], function () {
+    Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
+        Route::get('/show/{id}', [PostController::class, 'show'])->name('show');
+    });
+});
 
+Route::group(['middleware' => 'auth.admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', [AdminController::class, 'index'])->name("index");
+    Route::group(['prefix' => 'image', 'as' => 'image.'], function () {
+        Route::post('/upload', [ImageController::class, 'upload'])->name("upload");
+    });
+    Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
+        Route::get('/grid', [PostController::class, 'grid'])->name("grid");
+        Route::get('/create', [PostController::class, 'create'])->name("create");
+        Route::post('/create', [PostController::class, 'store'])->name("store");
+        Route::get('/edit/{id}', [PostController::class, 'edit'])->name("edit");
+        Route::put('/update/{id}', [PostController::class, 'update'])->name("update");
+    });
 });

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Raleway:wght@100;200;300;500;700&family=Roboto:wght@300&display=swap');
+
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'variables';
+
+$font-family-sans-serif: 'Raleway', sans-serif;
+$font-weight-base: 400;
+$font-weight-light: 300;
+
+/** Color palette */
+$primary: #394867;
+$secondary: #212A3E;
+
+$body-color: $secondary;
+$btn-color: $primary;
+
+$nav-link-font-weight: 700;
+$box-shadow-sm: 0 .125rem .25rem rgba($secondary, .075);
+$box-shadow: 0 1.5rem 1rem rgba($secondary, .25);
+
+@import 'bootstrap/scss/bootstrap';
+@import 'grid';
+@import 'menu';
+
+html, body {
+    height: 100%;
+}
+
+.btn-primary {
+    color: $color-contrast-light;
+
+    &:hover {
+        color: $color-contrast-light;
+    }
+}
+
+input::placeholder { font-weight: $font-weight-light; }
+.fa { margin-right: .5rem; transition: transform .50s }
+
+.text-comment {
+    font-weight: $font-weight-light;
+    font-size: $font-size-sm;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.form-control {
+    background-color: $white;
+}
