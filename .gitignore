@@ -18,3 +18,4 @@ yarn-error.log
 /.vscode
 .vercel
 !vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php
+/public/media/
