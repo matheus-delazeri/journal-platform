@@ -8,7 +8,6 @@
 
     <title>{{ config('app.name')  }} - Admin</title>
 
-    <!--<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script> -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
