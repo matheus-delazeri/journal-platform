@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->date('date');
+            $table->string('image')->default(asset('media/placeholder.png'));
             $table->timestamps();
         });
     }

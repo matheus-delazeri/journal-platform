@@ -16,7 +16,9 @@ class Post extends Model
      */
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'date',
+        'image'
     ];
 
     public $timestamps = true;

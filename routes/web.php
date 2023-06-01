@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::post('admin/user/login', [UserController::class, 'login'])->name('admin.u
 Route::get('admin/logout', [UserController::class, 'logout'])->name('admin.user.logout');
 
 Route::group(['prefix' => '/', 'as' => 'front.'], function () {
+    Route::get('/', [FrontController::class, 'index'])->name("index");
+    Route::get('/test', [FrontController::class, 'test'])->name("test");
     Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
         Route::get('/show/{id}', [PostController::class, 'show'])->name('show');
     });

@@ -1,6 +1,9 @@
+@php
+Illuminate\Support\Facades\App::setLocale("pt");
+@endphp
 @if($model instanceof \Illuminate\Database\Eloquent\Model)
     @php $items = $model->paginate(15) @endphp
-    <div class="row justify-content-between">
+    <div class="row justify-content-between mb-2">
         <div class="col-4">
         {!! $items->links() !!}
         </div>
@@ -13,7 +16,7 @@
         <thead>
         <tr>
             @foreach($columns as $column)
-                <th scope="col">{{ $column != "id" ? ucfirst($column) : "#" }}</th>
+                <th scope="col">{{ $column != "id" ? __(ucfirst($column)) : "#" }}</th>
             @endforeach
         </tr>
         </thead>

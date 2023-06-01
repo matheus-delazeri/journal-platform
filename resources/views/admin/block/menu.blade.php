@@ -1,9 +1,12 @@
 <div class="menu col-md-2 h-100 p-0 shadow">
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100">
-        <a href="{{ url('admin') }}"
-           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <span class="fs-4">{{ config('app.name') }} <span class="fs-6 mx-1">v1.0</span></span>
-        </a>
+        <div class="d-flex align-items-center">
+            <a href="{{ url('admin') }}"
+               class="text-decoration-none w-100">
+                <span class="fs-4">{{ config('app.name') }} <span class="fs-6 mx-1">v1.0</span></span>
+            </a>
+            <a href="{{ url('/') }}"><i class="float-end fa fa-arrow-up-right-from-square"></i></a>
+        </div>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
