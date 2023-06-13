@@ -9,11 +9,6 @@
         </div>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="{{ url('admin') }}" class="nav-link {{ Route::is('admin.index') ? 'active' : 'link-dark' }}">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
             <li>
                 <a href="{{ url('admin/post/grid') }}"
                    class="nav-link {{ Route::is('admin.post.*') ? 'active' : 'link-dark' }}">
@@ -34,11 +29,6 @@
                 <i class="fa fa-user-circle fa-lg"></i><strong>{{ Auth::user()->user }}</strong>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="#">Configurações</a></li>
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
                 <li><a class="dropdown-item" href="{{ url("admin/logout") }}">Sair</a></li>
             </ul>
         </div>

@@ -1,5 +1,28 @@
 {
+    "User": "Usuário",
+    "Password": "Senha",
+    "Sign in": "Entrar",
+    "Successfully logged in!": "Logado com sucesso!",
     "Created_at": "Criado em",
     "Updated_at": "Atualizado em",
-    "Title": "Título"
+    "Title": "Título",
+    "Author": "Autor",
+    "None": "Nenhum",
+    "State": "Status",
+    "published": "Publicado",
+    "Hidden": "Não visível",
+    "Draft": "Rascunho",
+    "Edit post": "Editar post",
+    "Timeline's managment": "Gerenciamento de Timelines",
+    "Post's managment": "Gerenciamento de Posts",
+    "Short description": "Descrição resumida",
+    "Description": "Descrição",
+    "Visible": "Visível",
+    "Color": "Cor",
+    "Date": "Data",
+    "Short Content": "Conteúdo breve",
+    "Will be shown at timeline's cards": "Exibido nas cards da timeline",
+    "Content": "Conteúdo",
+    "Type keywords that will be used for SEO. Each word delimited by <kbd>,</kbd>": "Escreva as keywords que serão utiliazadas para SEO. Cada keyword deve ser delimitada por <kbd>,</kbd>"
+
 }

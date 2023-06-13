@@ -10,20 +10,20 @@
 
                         <div class="col-md-8 col-lg-8 mx-auto">
 
-                            <h2 class="login-heading mb-5">Journal</h2>
+                            <h2 class="login-heading mb-5"><i class="fa fa-newspaper"></i>{{ config('app.name') }}</h2>
                             <form action="{{url('admin/user/login')}}" method="POST" id="logForm">
                                 {{ csrf_field() }}
                                 <div class="form-label-group">
-                                    <label for="inputUser">User</label>
-                                    <input type="text" name="user" id="inputUser" class="form-control" placeholder="Username" >
+                                    <label for="inputUser">{{ __("User") }}</label>
+                                    <input type="text" name="user" id="inputUser" class="form-control" placeholder="{{__("User")}}" >
                                 </div>
                                 <br>
                                 <div class="form-label-group">
-                                    <label for="inputPassword">Password</label>
-                                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
+                                    <label for="inputPassword">{{ __("Password") }}</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{__("Password")}}">
                                 </div>
                                 <br>
-                                <button class="btn btn-mb btn-primary text-uppercase mb-2" type="submit">Sign In</button>
+                                <button class="btn btn-mb btn-primary text-uppercase mb-2" type="submit">{{ __("Sign in") }}</button>
                             </form>
                         </div>
                     </div>

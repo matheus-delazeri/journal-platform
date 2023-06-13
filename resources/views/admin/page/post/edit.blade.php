@@ -18,7 +18,6 @@
         <div class="row w-100">
             <div class="col-md-10">
                 {{ Form::label('title', __('Title'), ['class' => 'form-label']) }}
-                <p class="text-comment"><i class="fa fa-chevron-right"></i>Max. 255</p>
                 {{ Form::text('title', null, ['class' => 'form-control mb-3']) }}
                 {{ Form::label('short_content', __('Short Content'), ['class' => 'form-label']) }}
                 <p class="text-comment"><i class="fa fa-chevron-right"></i>{{__("Will be shown at timeline's cards")}}</p>

@@ -19,7 +19,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('admin')->with("success", "Successfully logged in!");
+            return redirect()->intended('admin')->with("success", __("Successfully logged in!"));
         }
 
         return back()->withErrors([
