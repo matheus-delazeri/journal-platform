@@ -24,11 +24,21 @@ $box-shadow-sm: 0 .125rem .25rem rgba($secondary, .075);
 $box-shadow: 0 1.5rem 1rem rgba($secondary, .25);
 
 @import 'bootstrap/scss/bootstrap';
+@import '../css/owl.theme.default.min.css';
+@import '../css/owl.carousel.min.css';
 @import 'grid';
 @import 'menu';
 
 html, body {
     height: 100%;
+}
+
+.h-40 {
+    height: 40%;
+}
+
+.h-60 {
+    height: 60%;
 }
 
 .btn-primary {
@@ -39,8 +49,14 @@ html, body {
     }
 }
 
-input::placeholder { font-weight: $font-weight-light; }
-.fa { margin-right: .5rem; transition: transform .50s }
+input::placeholder {
+    font-weight: $font-weight-light;
+}
+
+.fa {
+    margin-right: .5rem;
+    transition: transform .50s
+}
 
 .text-comment {
     font-weight: $font-weight-light;
@@ -51,6 +67,30 @@ input::placeholder { font-weight: $font-weight-light; }
     transform: rotate(180deg);
 }
 
-.form-control {
+.form-control, .form-select {
     background-color: $white;
+}
+
+.owl-carousel .owl-stage {
+    display: flex;
+}
+
+.owl-carousel .owl-item img {
+    object-fit: cover;
+}
+
+.badge {
+    line-height: normal;
+}
+
+.card-text {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.navbar {
+    z-index: 9999;
 }

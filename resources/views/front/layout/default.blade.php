@@ -13,8 +13,8 @@
 <div class="container h-100 mw-100">
 
     @include($prefix.'block.menu')
-    <div id="main" class="row h-75 align-items-center justify-content-center">
-        <div class="content col-md-8">
+    <div id="main" class="row h-100 align-items-center justify-content-center">
+        <div class="content col-md-10 mt-5">
             @yield('content')
         </div>
     </div>

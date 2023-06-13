@@ -20,6 +20,12 @@
                     <i class="fa fa-newspaper"></i> Posts
                 </a>
             </li>
+            <li>
+                <a href="{{ url('admin/timeline/grid') }}"
+                   class="nav-link {{ Route::is('admin.timeline.*') ? 'active' : 'link-dark' }}">
+                    <i class="fa fa-timeline"></i> Timelines
+                </a>
+            </li>
         </ul>
         <hr>
         <div class="dropdown">
