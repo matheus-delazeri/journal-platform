@@ -19,6 +19,9 @@
             <div class="col-md-10">
                 {{ Form::label('title', __('Title'), ['class' => 'form-label']) }}
                 {{ Form::text('title', null, ['class' => 'form-control mb-3']) }}
+                {{ Form::label('url_key', __('URL Key'), ['class' => 'form-label']) }}
+                <p class="text-comment"><i class="fa fa-chevron-right"></i>{{__("If empty will use post's title")}}</p>
+                {{ Form::text('url_key', null, ['class' => 'form-control mb-3']) }}
                 {{ Form::label('short_content', __('Short Content'), ['class' => 'form-label']) }}
                 <p class="text-comment"><i class="fa fa-chevron-right"></i>{{__("Will be shown at timeline's cards")}}</p>
                 {{ Form::text('short_content', null, ['class' => 'form-control mb-3']) }}
@@ -38,10 +41,12 @@
                 {{ Form::date('date', null, ['class' => 'form-control mb-3']) }}
                 {{ Form::label('file', __('Image'), ['class' => 'form-label']) }}
                 @isset($post)
+                    @isset($post->image)
                     <div class="w-100 form-control p-2 mb-2">
                         <img class="w-100" src="{{ $post->image }}" style="aspect-ratio: 1 / 1; object-fit: cover"/>
                     </div>
-                @endif
+                    @endisset
+                @endisset
                 {{ Form::file('file', ['class' => 'form-control mb-3']) }}
                 {{ Form::label('author_id', __('Author'), ['class' => 'form-label']) }}
                 {{ Form::select('author_id', \App\Models\User::all()->pluck('user', 'id')->toArray(), null,['class' => 'form-select mb-3']) }}

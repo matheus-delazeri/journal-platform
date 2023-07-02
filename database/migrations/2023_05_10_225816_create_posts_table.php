@@ -24,7 +24,8 @@ return new class extends Migration
             $table->text('short_content');
             $table->text('content');
             $table->date('date');
-            $table->string('image', 255)->default(asset('media/placeholder.png'));
+            $table->string('image', 255)->nullable();
+            $table->text('url_key');
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
             $table->timestamps();

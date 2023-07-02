@@ -4,7 +4,7 @@
 @section('meta_keywords', $post->meta_keywords ?? str_replace(" ", ", ", strtolower($post->title)))
 
 @section('content')
-    <div class="container">
+    <div class="container post">
         <h1 class="modal-title mt-5"><b>{{ $post->title }}</b></h1>
         <p>{{ __("Event date") }}: <span class="badge bg-dark">{{ date('d/m/Y', strtotime($post->date)) }}</span></p>
         <hr>

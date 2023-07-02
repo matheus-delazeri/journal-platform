@@ -9,11 +9,12 @@
     "Author": "Autor",
     "None": "Nenhum",
     "State": "Status",
-    "published": "Publicado",
+    "Published": "Publicado",
     "Hidden": "Não visível",
     "Draft": "Rascunho",
     "Edit post": "Editar post",
     "Timeline's managment": "Gerenciamento de Timelines",
+    "Image":"Imagem",
     "Post's managment": "Gerenciamento de Posts",
     "Short description": "Descrição resumida",
     "Description": "Descrição",
@@ -23,6 +24,8 @@
     "Short Content": "Conteúdo breve",
     "Will be shown at timeline's cards": "Exibido nas cards da timeline",
     "Content": "Conteúdo",
+    "New post": "Novo post",
+    "New timeline": "Nova timeline",
     "Type keywords that will be used for SEO. Each word delimited by <kbd>,</kbd>": "Escreva as keywords que serão utiliazadas para SEO. Cada keyword deve ser delimitada por <kbd>,</kbd>"
 
 }

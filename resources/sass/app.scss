@@ -91,6 +91,10 @@ input::placeholder {
     overflow: hidden;
 }
 
+.card-body {
+    border-radius: 0.375rem;
+}
+
 .navbar {
     z-index: 9999;
 }

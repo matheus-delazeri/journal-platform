@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -27,13 +28,27 @@ class Post extends Model
         'content',
         'date',
         'image',
+        'url_key',
         'meta_description',
         'meta_keywords'
     ];
 
     public $timestamps = true;
 
-    public static function states() : array
+    public function save(array $options = [])
+    {
+        $this->setUrlKey();
+        return parent::save($options);
+    }
+
+    protected function setUrlKey()
+    {
+        if (!$this->url_key) {
+            $this->url_key = Str::slug($this->title);
+        }
+    }
+
+    public static function states(): array
     {
         return [
             self::STATE_DRAFT => __(ucfirst(self::STATE_DRAFT)),

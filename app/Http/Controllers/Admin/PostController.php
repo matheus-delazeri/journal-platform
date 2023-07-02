@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -22,18 +23,9 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'short_content' => 'required',
-            'content' => 'required',
-            'date' => 'required',
-            'file' => 'image'
-        ]);
-        $nonNullValues = array_filter($request->all());
-        if (isset($nonNullValues["image"])) {
-            Image::upload($request);
-        }
-        $post = new Post($nonNullValues);
+        $parsedData = $this->parseDataFromRequest($request);
+
+        $post = new Post($parsedData);
         if ($post->save()) {
             return redirect()->route('admin.post.edit', ['id' => $post->id])
                 ->with("success", __("Post successfully saved!"));
@@ -54,6 +46,20 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $post = Post::find($id);
+        $parsedData = $this->parseDataFromRequest($request);
+        if ($post->update($parsedData)) {
+            return redirect()->back()->with("success", __("Post successfully saved!"));
+        }
+
+        return back()->withErrors([
+            'title' => __('Unable to save post')
+        ])->onlyInput('title');
+
+    }
+
+    protected function parseDataFromRequest(Request $request)
+    {
         $request->validate([
             'title' => 'required|max:255',
             'short_content' => 'required',
@@ -62,19 +68,14 @@ class PostController extends Controller
             'file' => 'image'
         ]);
 
-        $post = Post::find($id);
-        $nonNullValues = array_filter($request->all());
-        if (isset($nonNullValues["file"])) {
+        $parsedData = array_filter($request->all());
+        if (isset($parsedData["file"])) {
             $imageLocation = Image::upload($request);
-            $nonNullValues["image"] = $imageLocation;
-        }
-        if ($post->update($nonNullValues)) {
-            return redirect()->back()->with("success", __("Post successfully saved!"));
+            $parsedData["image"] = $imageLocation;
         }
 
-        return back()->withErrors([
-            'title' => __('Unable to save post')
-        ])->onlyInput('title');
+
+        return $parsedData;
 
     }
 

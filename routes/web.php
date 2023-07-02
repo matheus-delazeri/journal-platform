@@ -26,7 +26,8 @@ Route::get('admin/logout', [UserController::class, 'logout'])->name('admin.user.
 Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/', [FrontController::class, 'index'])->name("index");
     Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
-        Route::get('/{id}', [\App\Http\Controllers\Front\PostController::class, 'show'])
+        Route::get('/{url_key}', [\App\Http\Controllers\Front\PostController::class, 'show'])
+            ->middleware(\App\Http\Middleware\RedirectPostUrl::class)
             ->name('show');
     });
     Route::group(['prefix' => 'timeline', 'as' => 'timeline.'], function () {
