@@ -39,6 +39,10 @@
     "Save": "Salvar",
     "New post": "Novo post",
     "New timeline": "Nova timeline",
+    "Timeline successfully saved!":"Timeline salva com sucesso!",
+    "Post successfully saved!":"Post salvo com sucesso!",
+    "If empty will use post's title": "Se vazio, utilizará o título do post",
+    "If empty will use timeline's title": "Se vazio, utilizará o título da timeline",
     "Type keywords that will be used for SEO. Each word delimited by <kbd>,</kbd>": "Escreva as keywords que serão utiliazadas para SEO. Cada keyword deve ser delimitada por <kbd>,</kbd>"
 
 }
