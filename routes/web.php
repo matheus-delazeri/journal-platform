@@ -31,13 +31,20 @@ Route::group(['prefix' => '/', 'as' => 'front.'], function () {
             ->name('show');
     });
     Route::group(['prefix' => 'timeline', 'as' => 'timeline.'], function () {
-        Route::get('/{id}', [\App\Http\Controllers\Front\TimelineController::class, 'show'])
+        Route::get('/{url_key}', [\App\Http\Controllers\Front\TimelineController::class, 'show'])
+            ->middleware(\App\Http\Middleware\RedirectTimelineUrl::class)
             ->name('show');
     });
 });
 
 Route::group(['middleware' => 'auth.admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', [AdminController::class, 'index'])->name("index");
+
+    Route::get('/settings', [AdminController::class, 'settings'])->name("settings");
+    Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+        Route::put('/update', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name("update");
+    });
+
     Route::group(['prefix' => 'image', 'as' => 'image.'], function () {
         Route::post('/upload', [\App\Http\Controllers\Admin\ImageController::class, 'upload'])->name("upload");
     });

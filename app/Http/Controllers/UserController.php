@@ -32,4 +32,5 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->intended('admin')->with("success", "See you later");
     }
+
 }

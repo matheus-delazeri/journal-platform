@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('short_description', 255)->nullable();
             $table->string('color');
+            $table->text('url_key');
             $table->string('state')->default(\App\Models\Timeline::STATE_HIDDEN);
             $table->timestamps();
         });

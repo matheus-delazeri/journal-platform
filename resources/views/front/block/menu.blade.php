@@ -15,7 +15,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="timelinesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Timelines </a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="timelinesDropdown">
                         @foreach($visibleTimelines as $timeline)
-                            <li><a class="dropdown-item small text-wrap" href="{{route("front.timeline.show", ["id" => $timeline->id])}}">{{$timeline->title}}</a></li>
+                            <li><a class="dropdown-item small text-wrap" href="{{route("front.timeline.show", ["url_key" => $timeline->url_key])}}">{{$timeline->title}}</a></li>
                         @endforeach
                     </ul>
                 </li>

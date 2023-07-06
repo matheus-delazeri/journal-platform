@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class Timeline extends Model
 {
@@ -29,12 +30,25 @@ class Timeline extends Model
         ];
     }
 
-    public function getPublishedPosts() : Collection
+    public function getPublishedPosts(): Collection
     {
         return Post::where('timeline_id', '=', $this->id)
             ->where('state', '=', Post::STATE_PUBLISHED)
             ->orderBy('date', 'asc')
             ->get();
+    }
+
+    public function save(array $options = [])
+    {
+        $this->setUrlKey();
+        return parent::save($options);
+    }
+
+    protected function setUrlKey()
+    {
+        if (!$this->url_key) {
+            $this->url_key = Str::slug($this->title);
+        }
     }
 
     public function getPeriod(): string

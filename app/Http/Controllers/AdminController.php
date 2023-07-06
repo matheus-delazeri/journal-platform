@@ -8,4 +8,9 @@ class AdminController extends Controller
     {
         return view('admin.page.index');
     }
+
+    public function settings()
+    {
+        return view('admin.page.settings');
+    }
 }

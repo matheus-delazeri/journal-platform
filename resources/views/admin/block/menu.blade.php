@@ -10,6 +10,12 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li>
+                <a href="{{ url('admin/') }}"
+                   class="nav-link {{ Route::is('admin.index') ? 'active' : 'link-dark' }}">
+                    <i class="fa fa-home"></i> Home
+                </a>
+            </li>
+            <li>
                 <a href="{{ url('admin/post/grid') }}"
                    class="nav-link {{ Route::is('admin.post.*') ? 'active' : 'link-dark' }}">
                     <i class="fa fa-newspaper"></i> Posts
@@ -19,6 +25,12 @@
                 <a href="{{ url('admin/timeline/grid') }}"
                    class="nav-link {{ Route::is('admin.timeline.*') ? 'active' : 'link-dark' }}">
                     <i class="fa fa-timeline"></i> Timelines
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('admin/settings') }}"
+                   class="nav-link {{ Route::is('admin.settings') ? 'active' : 'link-dark' }}">
+                    <i class="fa fa-cog"></i> {{__("Settings")}}
                 </a>
             </li>
         </ul>

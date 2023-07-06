@@ -13,12 +13,15 @@
         @endif
 
         <div class="d-flex w-100 px-4 gap-2 mb-4 align-items-center justify-content-end">
-            <button type="submit" class="btn btn-primary float-end"><i class="fa fa-save"></i> Salvar</button>
+            <button type="submit" class="btn btn-primary float-end"><i class="fa fa-save"></i>{{__("Save")}}</button>
         </div>
         <div class="row w-100">
             <div class="col-md-10">
                 {{ Form::label('title', __('Title'), ['class' => 'form-label']) }}
                 {{ Form::text('title', null, ['class' => 'form-control mb-3']) }}
+                {{ Form::label('url_key', __('URL Key'), ['class' => 'form-label']) }}
+                <p class="text-comment"><i class="fa fa-chevron-right"></i>{{__("If empty will use timeline's title")}}</p>
+                {{ Form::text('url_key', null, ['class' => 'form-control mb-3']) }}
                 {{ Form::label('short_description', __('Short description'), ['class' => 'form-label']) }}
                 {{ Form::text('short_description', null, ['class' => 'form-control mb-3']) }}
                 {{ Form::label('description', __('Description'), ['class' => 'form-label']) }}

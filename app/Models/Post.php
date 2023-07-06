@@ -41,6 +41,13 @@ class Post extends Model
         return parent::save($options);
     }
 
+    public function getAuthorAttribute()
+    {
+        $author = User::find($this->author_id);
+
+        return $author->user;
+    }
+
     protected function setUrlKey()
     {
         if (!$this->url_key) {

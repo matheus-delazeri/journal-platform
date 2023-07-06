@@ -13,7 +13,7 @@
         @endif
 
         <div class="d-flex w-100 px-4 gap-2 mb-4 align-items-center justify-content-end">
-            <button type="submit" class="btn btn-primary float-end"><i class="fa fa-save"></i> Salvar</button>
+            <button type="submit" class="btn btn-primary float-end"><i class="fa fa-save"></i>{{__("Save")}}</button>
         </div>
         <div class="row w-100">
             <div class="col-md-10">
